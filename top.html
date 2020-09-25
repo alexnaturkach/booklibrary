@@ -4,15 +4,39 @@
 <head>
   <meta charset="utf-8">
   <title></title>
+  <link rel="stylesheet" href="css.css">
 </head>
 
 <body>
   <div class="title">
     <h1>Personal Book Library</h1>
+    <button type="button" name="button">Add a New Book</button>
+    <input type="text" name="name" value="" placeholder="Enter title" id='bookTitle'>
+    <input type="text" name="author" value="" placeholder="Enter Author's name" id='authorName'>
+    <input type="text" name="status" value="" placeholder="What page are you on?" id='onPage'>
+    <input type="text" name="pages" value="" placeholder="How many pages in total?" id='numOfPages'>
+    <button type="button" name="button" onclick="addBookToLibrary()">Add book</button>
   </div>
-<div class="container">
+  <div class="container">
+    <div>
+      <h2>In Progress</h2>
+      <ul class="inProgress">
 
-</div>
+      </ul>
+    </div>
+    <div>
+      <h2>To Read</h2>
+      <ul class="toRead">
+
+      </ul>
+    </div>
+    <div>
+      <h2>Finished Books</h2>
+      <ul class="finished">
+
+      </ul>
+    </div>
+  </div>
 
 
   <script type="text/javascript" src='top.js'>

@@ -1,0 +1,25 @@
+.container>div {
+  position: relative;
+  width: 30vw;
+  display: inline-block;
+  margin: 15px;
+  background: #bbeef0;
+}
+
+.delete {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+}
+
+.books {
+  display: block;
+}
+
+.books:hover{
+  background: white;
+}
+.books:hover .delete{
+  opacity: 100;
+  background: yellow;;
+}
