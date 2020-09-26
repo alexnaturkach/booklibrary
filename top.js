@@ -1,6 +1,5 @@
 let myLibrary = [];
 const inProgressBooks = document.querySelector('.inProgress');
-const toReadBooks = document.querySelector('.toRead');
 const finishedBooks = document.querySelector('.finished');
 
 
@@ -32,7 +31,7 @@ function showBooks() {
   finishedBooks.innerHTML = '';
   for (i = 0; i < myLibrary.length; i++) {
     if (Number(myLibrary[i].onPage) < Number(myLibrary[i].totalPages)) {
-      let newP = document.createElement('p');
+      let newP = document.createElement('li');
       let pText = document.createTextNode(myLibrary[i].title + ' by ' + myLibrary[i].author);
       newP.appendChild(pText);
       let xMarker = document.createElement('span');
@@ -41,9 +40,8 @@ function showBooks() {
       newP.appendChild(xMarker);
       newP.classList.add('books');
       inProgressBooks.prepend(newP);
-    }
-    else if (Number(myLibrary[i].onPage) === Number(myLibrary[i].totalPages)){
-      let newP = document.createElement('p');
+    } else if (Number(myLibrary[i].onPage) === Number(myLibrary[i].totalPages)) {
+      let newP = document.createElement('li');
       let pText = document.createTextNode(myLibrary[i].title + ' by ' + myLibrary[i].author);
       newP.appendChild(pText);
       let xMarker = document.createElement('span');
@@ -52,6 +50,18 @@ function showBooks() {
       newP.appendChild(xMarker);
       newP.classList.add('books');
       finishedBooks.prepend(newP);
+    }
+
+  }
+
+  let isEmpty = [inProgressBooks, finishedBooks];
+  for (i=0; i<isEmpty.length; i++){
+    if (!isEmpty[i].firstChild){
+      let newP = document.createElement('li');
+        let pText = document.createTextNode("< Empty >");
+        newP.classList.add('empty');
+        newP.appendChild(pText);
+        isEmpty[i].prepend(newP);
     }
   }
 };
