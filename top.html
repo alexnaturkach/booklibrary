@@ -8,16 +8,19 @@
 </head>
 
 <body>
+  <div id="overlay">
+    <div class="form">
+      <input class="formInput" type="text" name="name" required value="" placeholder="Enter title" id='bookTitle'>
+      <input class="formInput" type="text" name="author" required value="" placeholder="Enter Author's name" id='authorName'>
+      <input class="formInput" type="number" name="status" required value="" placeholder="What page are you on?" id='onPage'>
+      <input class="formInput" type="number" name="pages" required value="" placeholder="How many pages in total?" id='numOfPages'>
+      <button class="formInput" type="button" name="button" onclick="addBookToLibrary()" class ='addBook'>Add book</button>
+    </div>
+  </div>
   <div class="title">
     <h1>Personal Book Library</h1>
-    <button type="button" name="button" class='button'><span class='plus'>&#43;</span>Add a New Book</button>
-    <div class="form">
-      <input type="text" name="name" value="" placeholder="Enter title" id='bookTitle'>
-      <input type="text" name="author" value="" placeholder="Enter Author's name" id='authorName'>
-      <input type="text" name="status" value="" placeholder="What page are you on?" id='onPage'>
-      <input type="text" name="pages" value="" placeholder="How many pages in total?" id='numOfPages'>
-      <button type="button" name="button" onclick="addBookToLibrary()">Add book</button>
-    </div>
+    <button type="button" name="button" class='button' onclick="overlayOn()"><span class='addNew'>&#43;</span>Add a New Book</button>
+
   </div>
   <div class="container">
     <div>
