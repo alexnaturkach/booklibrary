@@ -15,7 +15,12 @@ function Book(title, author, onPage, totalPages) {
   }
 }
 
-
+function clearForm() {
+  document.getElementById('bookTitle').value = '';
+  document.getElementById('authorName').value = '';
+  document.getElementById('onPage').value = '';
+  document.getElementById('numOfPages').value = '';
+}
 function addBookToLibrary() {
   let a = document.getElementById('bookTitle').value;
   let b = document.getElementById('authorName').value;
@@ -27,12 +32,13 @@ function addBookToLibrary() {
       return;
     }
   }
-  if (a !== '' & b !== '' & c !== '' & d !== '' & !(Number(c) > Number(d)) ) {
+  if (c > d){
+    alert("Your current page can't be higher than the total number of pages in the book");
+    return;
+  }
+  if (a !== '' & b !== '' & c !== '' & d !== '') {
     myLibrary.push(new Book(a, b, c, d));
-    document.getElementById('bookTitle').value = '';
-    document.getElementById('authorName').value = '';
-    document.getElementById('onPage').value = '';
-    document.getElementById('numOfPages').value = '';
+    clearForm();
     showBooks();
   }
   else {
@@ -156,9 +162,6 @@ function overlayOn() {
   document.getElementById("overlay").style.display = "block";
 }
 
-function overlayOff() {
-  document.getElementById("overlay").style.display = "none";
-}
 
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('form') !== true & e.target.classList.contains('button') !== true & e.target.classList.contains('formInput') !== true){

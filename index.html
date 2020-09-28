@@ -10,12 +10,19 @@
 <body>
   <div id="overlay">
     <div class="form">
-      <input class="formInput" type="text" name="name" required value="" placeholder="Enter title" id='bookTitle'>
-      <input class="formInput" type="text" name="author" required value="" placeholder="Enter Author's name" id='authorName'>
-      <input class="formInput" type="number" name="status" required value="" placeholder="What page are you on?" id='onPage'>
-      <input class="formInput" type="number" name="pages" required value="" placeholder="How many pages in total?" id='numOfPages'>
-      <button class="formInput" type="button" name="button" onclick="addBookToLibrary()" class ='addBook'>Add book</button>
+      <input class="formInput" type="text" name="name" required value="" id='bookTitle'>
+      <span class="floating-label" id="floating-label1">Book Title</span>
+      <input class="formInput" type="text" name="author" required value="" id='authorName'>
+      <span class="floating-label" id="floating-label2">Author's name</span>
+      <input class="formInput" type="number" min='0' name="status" required value="" id='onPage'>
+      <span class="floating-label" id="floating-label3">What page are you currently on?</span>
+      <input class="formInput" type="number" min='1' name="pages" required value="" id='numOfPages'>
+      <span class="floating-label" id="floating-label4">Total pages in the book</span>
+      <div class="buttonContainer">
+        <button type="button" name="button" onclick="addBookToLibrary()" class='addBook'>Add book</button>
+      </div>
     </div>
+
   </div>
   <div class="title">
     <h1>Personal Book Library</h1>

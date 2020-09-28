@@ -19,17 +19,7 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.form {
-  text-align: center;
-  border-radius: 1vw;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  background: #2a9d8f;
-  position: absolute;
-  top: 20vh;
-  left: 40vw;
-  width: 20vw;
-  height: 20vh;
-}
+
 
 .form>input {
   margin: auto;
@@ -208,4 +198,92 @@ h2 {
 .button:hover .addNew {
   color: black;
   background-color: #0dbd7a;
+}
+
+.form {
+  text-align: left;
+  border-radius: 1vw;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background: #f4a261;
+  position: absolute;
+  top: 20vh;
+  left: 40vw;
+  width: 20vw;
+  height: 40vh;
+}
+
+.formInput {
+  padding-bottom: 0;
+  font-size: 2em;
+  color: #fff;
+  background: #f4a261;
+  margin-top: 2vh !important;;
+  outline: none;
+  height: 4vh;
+  line-height: 2vh;
+  width: 80%;
+  border: solid;
+  border-color: #e76f51;
+  border-width: 0 0 2px;
+  border-radius: 10px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.formInput::placeholder {
+  font-size: 0.7em;
+  color: #e76f51;
+}
+
+#bookTitle:focus ~ #floating-label1,
+#bookTitle:not(:focus):valid ~ #floating-label1{
+  left: 2vw;
+  bottom: 5vh;
+  font-size: 11px;
+  color: #fff;
+  opacity: 1;
+}
+
+#authorName:focus ~ #floating-label2,
+#authorName:not(:focus):valid ~ #floating-label2{
+  left: 2vw;
+  bottom: 5vh;
+  font-size: 11px;
+  color: #fff;
+  opacity: 1;
+}
+#onPage:focus ~ #floating-label3,
+#onPage:not(:focus):valid ~ #floating-label3{
+  left: 2vw;
+  bottom: 5vh;
+  font-size: 11px;
+  color: #fff;
+  opacity: 1;
+}
+
+#numOfPages:focus ~ #floating-label4,
+#numOfPages:not(:focus):valid ~ #floating-label4{
+  left: 2vw;
+  bottom: 5vh;
+  font-size: 11px;
+  color: #fff;
+  opacity: 1;
+}
+
+.inputText {
+  font-size: 14px;
+  width: 200px;
+  height: 35px;
+}
+
+.floating-label {
+  left: 3vw;
+  position: relative;
+  bottom: 2vh;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  color: #e76f51;
 }
