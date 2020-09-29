@@ -9,7 +9,7 @@
 
 <body>
   <div id="overlay">
-    <div class="form">
+    <form class="form" autocomplete='off'>
       <input class="formInput" type="text" name="name" required value="" id='bookTitle'>
       <span class="floating-label" id="floating-label1">Book Title</span>
       <input class="formInput" type="text" name="author" required value="" id='authorName'>
@@ -19,8 +19,8 @@
       <input class="formInput" type="number" min='1' name="pages" required value="" id='numOfPages'>
       <span class="floating-label" id="floating-label4">Total pages in the book</span>
       <div class="buttonContainer">
-        <button type="button" name="button" onclick="addBookToLibrary()" class='addBook'>Add book</button>
-      </div>
+        <button type="button" name="button" onclick="addBookToLibrary()" class='addBook button'>&#10003;</button>
+      </form>
     </div>
 
   </div>

@@ -107,7 +107,7 @@ h2 {
 }
 
 .progressBar {
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px;
   opacity: 0.2;
   position: absolute;
   height: 100%;
@@ -205,11 +205,18 @@ h2 {
   border-radius: 1vw;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background: #f4a261;
-  position: absolute;
+  position: relative;
   top: 20vh;
-  left: 40vw;
-  width: 20vw;
+  margin: auto;
+  width: 420px;
   height: 40vh;
+}
+
+@media only screen and (max-width: 900px) {
+  .form {
+    position: static;
+    width: 400px;
+  }
 }
 
 .formInput {
@@ -286,4 +293,20 @@ input[type=number]::-webkit-outer-spin-button {
   pointer-events: none;
   transition: 0.2s ease all;
   color: #e76f51;
+}
+
+.buttonContainer {
+  text-align: center;
+}
+
+.addBook {
+  background: #e76f51;
+  font-size: 2em;
+  padding: 0 2vw;
+  text-align: center;
+  margin-top: 1vh;
+}
+
+.addBook:hover {
+  background: #4D8B31;
 }

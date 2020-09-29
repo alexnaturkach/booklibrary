@@ -21,6 +21,7 @@ function clearForm() {
   document.getElementById('onPage').value = '';
   document.getElementById('numOfPages').value = '';
 }
+
 function addBookToLibrary() {
   let a = document.getElementById('bookTitle').value;
   let b = document.getElementById('authorName').value;
@@ -28,11 +29,18 @@ function addBookToLibrary() {
   let d = document.getElementById('numOfPages').value;
   for (i = 0; i < myLibrary.length; i++) {
     if (myLibrary[i].title === a) {
-      alert('You already have this book in your library');
-      return;
+      let confirmation = confirm('This will edit an existing book in your library. Confirm?')
+      if (confirmation) {
+        myLibrary.splice(i, 1);
+        myLibrary[i] = new Book(a, b, c, d);
+        showBooks();
+        overlayOff();
+        clearForm();
+        return;
+      }
     }
   }
-  if (c > d){
+  if (c > d) {
     alert("Your current page can't be higher than the total number of pages in the book");
     return;
   }
@@ -40,8 +48,8 @@ function addBookToLibrary() {
     myLibrary.push(new Book(a, b, c, d));
     clearForm();
     showBooks();
-  }
-  else {
+    document.getElementById("overlay").style.display = "none";
+  } else {
     alert('fill out everything!');
   }
 }
@@ -72,7 +80,7 @@ function addABook() {
   xMarker.classList.add('delete');
   let progressBar = document.createElement('div');
   progressBar.classList.add('progressBar');
-  progressBar.style.width = (myLibrary[i].onPage/myLibrary[i].totalPages) * 100 + "%";
+  progressBar.style.width = (myLibrary[i].onPage / myLibrary[i].totalPages) * 100 + "%";
   newP.appendChild(xMarker);
   newP.appendChild(titleDiv);
   newP.appendChild(pagesDiv);
@@ -113,13 +121,36 @@ document.addEventListener('click', (e) => {
     let parentTitle = e.target.nextSibling.textContent;
     for (i = 0; i < myLibrary.length; i++) {
       if (myLibrary[i].title === parentTitle) {
-        myLibrary.splice(i, 1);
-        showBooks();
-        return;
+        let confirmation = confirm("Are you sure you want to remove it?");
+        if (confirmation) {
+          myLibrary.splice(i, 1);
+          showBooks();
+          return;
+        }
       }
     }
   }
 })
+//edit book function
+document.addEventListener('click', (e) => {
+  let targetParent = e.target.parentNode;
+  let parentNodeChildren = targetParent.getElementsByTagName('p');
+  let titleNode = parentNodeChildren[0];
+  let bookHover_1 = document.getElementById('titleDiv');
+  let bookHover_2 = document.getElementById('pagesDiv');
+  if (e.target === bookHover_1 || e.target === bookHover_2) {
+    for (i = 0; i < myLibrary.length; i++) {
+      if (myLibrary[i].title === titleNode.innerText) {
+        document.getElementById('bookTitle').value = myLibrary[i].title;
+        document.getElementById('authorName').value = myLibrary[i].author;
+        document.getElementById('onPage').value = myLibrary[i].onPage;
+        document.getElementById('numOfPages').value = myLibrary[i].totalPages;
+      }
+    }
+    overlayOn();
+  }
+})
+
 
 //move one page up
 document.addEventListener('click', (e) => {
@@ -132,7 +163,7 @@ document.addEventListener('click', (e) => {
           showBooks();
         } else {
           e.target.previousSibling.previousSibling.textContent = "pages: " + myLibrary[i].onPage + " / " + myLibrary[i].totalPages;
-          e.target.parentNode.nextSibling.style.width = (myLibrary[i].onPage/myLibrary[i].totalPages) * 100 + "%";
+          e.target.parentNode.nextSibling.style.width = (myLibrary[i].onPage / myLibrary[i].totalPages) * 100 + "%";
           return;
         }
       }
@@ -150,7 +181,7 @@ document.addEventListener('click', (e) => {
           showBooks();
         } else {
           e.target.previousSibling.textContent = "pages: " + myLibrary[i].onPage + " / " + myLibrary[i].totalPages;
-          e.target.parentNode.nextSibling.style.width = (myLibrary[i].onPage/myLibrary[i].totalPages) * 100 + "%";
+          e.target.parentNode.nextSibling.style.width = (myLibrary[i].onPage / myLibrary[i].totalPages) * 100 + "%";
           return;
         }
       }
@@ -162,9 +193,12 @@ function overlayOn() {
   document.getElementById("overlay").style.display = "block";
 }
 
+function overlayOff() {
+  document.getElementById("overlay").style.display = "none";
+}
 
-document.addEventListener('click', (e) => {
-  if (e.target.classList.contains('form') !== true & e.target.classList.contains('button') !== true & e.target.classList.contains('formInput') !== true){
-    document.getElementById("overlay").style.display = "none";
+document.addEventListener('mousedown', (e) => {
+  if (e.target.classList.contains('form') !== true & e.target.classList.contains('button') !== true & e.target.classList.contains('formInput') !== true) {
+    overlayOff();
   }
 })
