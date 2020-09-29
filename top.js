@@ -31,8 +31,7 @@ function addBookToLibrary() {
     if (myLibrary[i].title === a) {
       let confirmation = confirm('This will edit an existing book in your library. Confirm?')
       if (confirmation) {
-        myLibrary.splice(i, 1);
-        myLibrary[i] = new Book(a, b, c, d);
+        myLibrary.splice(i, 1, new Book(a, b, c, d));
         showBooks();
         overlayOff();
         clearForm();
@@ -40,7 +39,7 @@ function addBookToLibrary() {
       }
     }
   }
-  if (c > d) {
+  if (Number(c) > Number(d)) {
     alert("Your current page can't be higher than the total number of pages in the book");
     return;
   }
@@ -58,6 +57,7 @@ function addABook() {
   let newP = document.createElement('li');
   let titleDiv = document.createElement('p');
   titleDiv.setAttribute('id', 'titleDiv');
+  titleDiv.setAttribute('class', 'selectorTitleDiv')
   let pagesDiv = document.createElement('p');
   let plus = document.createElement('span');
   let minus = document.createElement('span');
@@ -68,6 +68,7 @@ function addABook() {
   plus.appendChild(plusText);
   minus.appendChild(minusText);
   pagesDiv.setAttribute('id', 'pagesDiv');
+  pagesDiv.setAttribute('class', 'selectorPagesDiv')
 
   let pagesDivText = document.createTextNode("pages: " + myLibrary[i].onPage + " / " + myLibrary[i].totalPages);
   pagesDiv.appendChild(pagesDivText);
@@ -136,9 +137,7 @@ document.addEventListener('click', (e) => {
   let targetParent = e.target.parentNode;
   let parentNodeChildren = targetParent.getElementsByTagName('p');
   let titleNode = parentNodeChildren[0];
-  let bookHover_1 = document.getElementById('titleDiv');
-  let bookHover_2 = document.getElementById('pagesDiv');
-  if (e.target === bookHover_1 || e.target === bookHover_2) {
+  if (e.target.classList.contains('selectorTitleDiv') || e.target.classList.contains('selectorPagesDiv')) {
     for (i = 0; i < myLibrary.length; i++) {
       if (myLibrary[i].title === titleNode.innerText) {
         document.getElementById('bookTitle').value = myLibrary[i].title;

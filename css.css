@@ -134,7 +134,7 @@ h2 {
   display: inline-block;
   border-radius: 50%;
   user-select: none;
-  margin-left: 25px;
+  margin-left: 35px;
 }
 
 .plus:hover {
@@ -201,6 +201,7 @@ h2 {
 }
 
 .form {
+  padding-top: 1vh;
   text-align: left;
   border-radius: 1vw;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -211,11 +212,12 @@ h2 {
   width: 420px;
   height: 40vh;
 }
-
-@media only screen and (max-width: 900px) {
-  .form {
-    position: static;
-    width: 400px;
+.clearButton:hover {
+  background: #800000 !important;
+}
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
   }
 }
 
