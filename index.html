@@ -9,6 +9,11 @@
 
 <body>
   <div id="overlay">
+    <div id="popper">
+      <p id=popperText></p>
+<button type="button" name="button" class="confirmButton no">No</button>
+<button type="button" name="button" class="confirmButton yes" onclick="popperAction()">Yes</button>
+    </div>
     <form class="form" autocomplete='off'>
       <input class="formInput" type="text" name="name" required value="" id='bookTitle'>
       <span class="floating-label" id="floating-label1">Book Title</span>
@@ -20,7 +25,7 @@
       <span class="floating-label" id="floating-label4">Total pages in the book</span>
       <div class="buttonContainer">
         <button type="button" name="button" onclick="clearForm()" class='addBook button clearButton'>Clear</button>
-        <button type="button" name="button" onclick="addBookToLibrary()" class='addBook button'>&#10003;</button>
+        <button type="button" name="button" onclick="addBookToLibrary()" class='addBook button check yes'>&#10003;</button>
       </form>
     </div>
 

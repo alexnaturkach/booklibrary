@@ -37,6 +37,9 @@ function addBookToLibrary() {
         clearForm();
         return;
       }
+      else {
+        return;
+      }
     }
   }
   if (Number(c) > Number(d)) {

@@ -19,8 +19,57 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+#popper {
+  display: none;
+  background: #e9c46a !important;
+  position: relative;
+  top: 40vh;
+  z-index: 5;
+  margin: auto;
+  height: 15vh;
+  width: 20vw;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+#popperText{
+  display: block;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  color: #264653;
+}
+.confirmButton {
+  font-weight: 600;
+  height: 25%;
+  width: 25%;
+  outline: none;
+  display: inline-block;
+  position: relative;
+  background-color: #2a9d8f;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 5% 5%;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+  top: 70%;
+}
+.no {
+  background: #e76f51;
+}
+.no:hover {
+  background: #800000;
+}
+.yes:hover {
+  background: #5aac44 !important;
+}
 
-
+.check {
+  background: #2a9d8f !important;
+}
 .form>input {
   margin: auto;
   display: block;
@@ -125,6 +174,8 @@ h2 {
 }
 
 .plus, .minus {
+  position: absolute;
+  top:25%;
   vertical-align: middle;
   text-align: center;
   height: 25px;
@@ -135,6 +186,14 @@ h2 {
   border-radius: 50%;
   user-select: none;
   margin-left: 35px;
+}
+
+.plus {
+  right: 6vw;
+}
+
+.minus {
+  right:8vw;
 }
 
 .plus:hover {
@@ -309,6 +368,6 @@ input[type=number]::-webkit-outer-spin-button {
   margin-top: 1vh;
 }
 
-.addBook:hover {
-  background: #4D8B31;
+.addBook:hover{
+  background: #12e772;
 }
