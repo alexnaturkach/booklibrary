@@ -2,7 +2,7 @@ body {
   user-select: none;
   font-weight: 600;
   text-align: center;
-  background: #f4a261;
+  background: lightblue;
   font-family: sans-serif;
 }
 
@@ -274,11 +274,6 @@ h2 {
 .clearButton:hover {
   background: #800000 !important;
 }
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
-  }
-}
 
 .formInput {
   padding-bottom: 0;
@@ -370,4 +365,35 @@ input[type=number]::-webkit-outer-spin-button {
 
 .addBook:hover{
   background: #12e772;
+}
+@media only screen and (max-width: 1900px) {
+  body {
+    background-color: lightblue;
+    font-size: 1em;
+  }
+  #pagesDiv, #titleDiv {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .plus, .minus {
+    top: 30px;
+  }
+  .minus {
+        right: 10vw;
+  }
+  .delete {
+    height: 100%;
+    vertical-align: center;
+  }
+  .h2 {
+    transition: scale(1.5);
+  }
+  .container>div {
+    width: 80vw;
+    margin-bottom: 5vh;
+  }
+  .form {
+    width: 70vw;
+  }
 }
