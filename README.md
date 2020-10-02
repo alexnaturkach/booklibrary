@@ -1,3 +1,2 @@
 Book Library. The Odin Project
-
-Live Demo 
+[Live Demo](https://alexnaturkach.github.io/booklibrary/)
